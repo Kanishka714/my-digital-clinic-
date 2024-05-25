@@ -199,7 +199,7 @@ class SignUp extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        Text("Forget Password?",
+                        Text("Already have an account?",
                             style: TextStyle(
                                 color: Color.fromRGBO(106, 121, 213, 1.0),
                                 fontWeight: FontWeight.bold)),

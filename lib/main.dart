@@ -2,8 +2,11 @@ import 'package:digital_clinic_final/Custom_Buttons/custom_buttom_2.dart';
 import 'package:digital_clinic_final/Custom_Buttons/custom_button_1.dart';
 import 'package:digital_clinic_final/Custom_Buttons/custom_button_3.dart';
 import 'package:digital_clinic_final/Custom_Buttons/custom_button_4.dart';
+import 'package:digital_clinic_final/Landing_Pages/question_page1.dart';
+import 'package:digital_clinic_final/Landing_Pages/welcome_page.dart';
 import 'package:digital_clinic_final/Login_and_Signup/login_page.dart';
 import 'package:digital_clinic_final/Login_and_Signup/signup_page.dart';
+import 'package:digital_clinic_final/Reusables/bottom_navbar.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SignUp(),
+      home: QuestionPage1(),
     );
   }
 }
