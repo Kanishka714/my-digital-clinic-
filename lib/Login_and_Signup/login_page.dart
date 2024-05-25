@@ -2,8 +2,8 @@ import 'package:digital_clinic_final/Custom_Buttons/custom_button_1.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class SignUp extends StatelessWidget {
-  const SignUp({Key? key}) : super(key: key);
+class LoginPage extends StatelessWidget {
+  const LoginPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +48,7 @@ class SignUp extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Sign up",
+                          "Sign In",
                           style: TextStyle(
                               fontSize: 44,
                               fontWeight: FontWeight.bold,
@@ -71,37 +71,6 @@ class SignUp extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  //Name textfield
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: width * 0.05),
-                    child: Text(
-                      "Name",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.grey[500],
-                          fontSize: 16),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: width * 0.05), // Apply horizontal padding
-                    child: TextField(
-                      decoration: InputDecoration(
-                        hintText: 'Full Name',
-                        hintStyle: TextStyle(color: Colors.grey[500]),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5),
-                          borderSide: BorderSide(),
-                        ),
-                        contentPadding: EdgeInsets.symmetric(
-                            vertical: 10,
-                            horizontal: 10), // Adjust the content padding
-                      ),
-                    ),
-                  ),
-
-                  SizedBox(height: 5),
-
                   //Email textfield
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: width * 0.05),
@@ -119,37 +88,6 @@ class SignUp extends StatelessWidget {
                     child: TextField(
                       decoration: InputDecoration(
                         hintText: 'Email',
-                        hintStyle: TextStyle(color: Colors.grey[500]),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5),
-                          borderSide: BorderSide(),
-                        ),
-                        contentPadding: EdgeInsets.symmetric(
-                            vertical: 10,
-                            horizontal: 10), // Adjust the content padding
-                      ),
-                    ),
-                  ),
-
-                  SizedBox(height: 5),
-
-                  //Mobile Number textfield
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: width * 0.05),
-                    child: Text(
-                      "Mobile Number",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.grey[500],
-                          fontSize: 16),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: width * 0.05), // Apply horizontal padding
-                    child: TextField(
-                      decoration: InputDecoration(
-                        hintText: 'Mobile Number',
                         hintStyle: TextStyle(color: Colors.grey[500]),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(5),
