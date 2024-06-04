@@ -10,6 +10,7 @@ class BookingPage extends StatefulWidget {
 class _BookingPageState extends State<BookingPage> {
   bool _type1Checked = false;
   bool _type2Checked = false;
+  String? _selectedInsuranceOption = "Select one";
 
   @override
   Widget build(BuildContext context) {
@@ -50,92 +51,9 @@ class _BookingPageState extends State<BookingPage> {
         ),
         body: TabBarView(
           children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Text(
-                    "Set type of visit",
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                  ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Checkbox(
-                      value: _type1Checked,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      onChanged: (bool? value) {
-                        setState(() {
-                          _type1Checked = value ?? false;
-                        });
-                      },
-                    ),
-                    Text(
-                      "Video Call",
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Checkbox(
-                      value: _type2Checked,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      onChanged: (bool? value) {
-                        setState(() {
-                          _type2Checked = value ?? false;
-                        });
-                      },
-                    ),
-                    Text(
-                      "Audio Call",
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                  ],
-                ),
-                Divider(thickness: 2),
-                Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Text(
-                    "Do you have Insurance?",
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: TextField(
-                    decoration: InputDecoration(
-                      hintText: "Enter your insurance details",
-                      border: OutlineInputBorder(), // Adding border
-                    ),
-                  ),
-                ),
-
-                Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Text(
-                    "Do you have Insurance?",
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: TextField(
-                    decoration: InputDecoration(
-                      hintText: "Enter your insurance details",
-                      border: OutlineInputBorder(), // Adding border
-                    ),
-                  ),
-                ),
-              ],
-            ),
+            Center(child: Text("Details Tab")),
+            Center(child: Text("Finish Tab")),
+            Center(child: Text("Finish Tab")),
           ],
         ),
       ),
