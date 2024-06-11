@@ -1,5 +1,6 @@
 import 'package:digital_clinic_final/Custom_Buttons/custom_button_1.dart';
 import 'package:digital_clinic_final/Custom_Buttons/custom_button_3.dart';
+import 'package:digital_clinic_final/Reusables/calender.dart';
 import 'package:flutter/material.dart';
 
 class BookingPage extends StatefulWidget {
@@ -17,6 +18,7 @@ class _BookingPageState extends State<BookingPage> {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
 
     return DefaultTabController(
       length: 3,
@@ -56,9 +58,11 @@ class _BookingPageState extends State<BookingPage> {
         body: TabBarView(
           children: [
             // Time tab
-            Center(child: Text("Time Tab")),
+            Center(
+              child: Calendar(),
+            ),
 
-            // Details tab
+            // Details tab //button width problem
             SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -259,14 +263,17 @@ class _BookingPageState extends State<BookingPage> {
                     ],
                   ),
                   SizedBox(height: height * 0.01),
-                  CustomButton1(
-                    text: "NEXT",
-                    fillColor: Color.fromRGBO(106, 121, 213, 1.0),
-                    textColor: Colors.white,
-                    borderColor: Colors.transparent,
-                    onPress: () {
-                      // Define your onPress function here
-                    },
+                  Padding(
+                    padding: const EdgeInsets.only(left: 16.0,right: 16.0,bottom: 20),
+                    child: CustomButton1(
+                      text: "NEXT",
+                      fillColor: Color.fromRGBO(106, 121, 213, 1.0),
+                      textColor: Colors.white,
+                      borderColor: Colors.transparent,
+                      onPress: () {
+                        // Define your onPress function here
+                      },
+                    ),
                   ),
                 ],
               ),

@@ -17,6 +17,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.1"
+  calendar_date_picker2:
+    dependency: "direct main"
+    description:
+      name: calendar_date_picker2
+      sha256: "5fddc1fb78c8f218b2e0dd6bae239f7ac502784c62f34ef96f4b22a8cb5d5608"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.3"
   characters:
     dependency: transitive
     description:
@@ -49,6 +57,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.8"
+  date_picker_plus:
+    dependency: "direct main"
+    description:
+      name: date_picker_plus
+      sha256: "9888fe37119e17a91e87a917f0dcd70b51fbbc30b0a3579812081d2616878add"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.0.0"
   fake_async:
     dependency: transitive
     description:
@@ -91,6 +107,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.0.6"
+  intl:
+    dependency: transitive
+    description:
+      name: intl
+      sha256: d6f56758b7d3014a48af9701c085700aac781a92a87a62b1333b46d8879661cf
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.19.0"
   leak_tracker:
     dependency: transitive
     description:
@@ -226,3 +250,4 @@ packages:
     version: "13.0.0"
 sdks:
   dart: ">=3.3.4 <4.0.0"
+  flutter: ">=2.0.0"
