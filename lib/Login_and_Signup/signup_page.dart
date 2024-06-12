@@ -335,7 +335,7 @@ class SignUp extends StatelessWidget {
                         style: TextStyle(color: Colors.grey[500]),
                         children: <TextSpan>[
                           TextSpan(
-                            text: 'Sign in',
+                            text: 'Sign In',
                             style: TextStyle(
                                 color: Color.fromRGBO(106, 121, 213, 1.0),
                                 fontWeight: FontWeight.bold),

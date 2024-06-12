@@ -1,6 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:digital_clinic_final/Reusables/bottom_navbar.dart';
 import 'package:digital_clinic_final/Reusables/news_container.dart';
-import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart'; // Import the Font Awesome package
 
 class HomePage extends StatelessWidget {
@@ -9,7 +9,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
-    //final width = MediaQuery.of(context).size.width;
+    // final width = MediaQuery.of(context).size.width;
     final blueHeight = height * 1 / 5; // Height for blue color
 
     return Scaffold(

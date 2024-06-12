@@ -151,7 +151,7 @@ class LoginPage extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(left: 10.0, right: 8.0),
                     child: CustomButton1(
-                      text: "Sign Up",
+                      text: "Sign In",
                       fillColor: Color.fromRGBO(106, 121, 213, 1.0),
                       textColor: Colors.white,
                       borderColor: Colors.transparent,
@@ -273,7 +273,7 @@ class LoginPage extends StatelessWidget {
                         style: TextStyle(color: Colors.grey[500]),
                         children: <TextSpan>[
                           TextSpan(
-                            text: 'Sign in',
+                            text: 'Sign Up',
                             style: TextStyle(
                                 color: Color.fromRGBO(106, 121, 213, 1.0),
                                 fontWeight: FontWeight.bold),
