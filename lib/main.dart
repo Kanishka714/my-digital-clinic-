@@ -19,6 +19,7 @@ import 'package:digital_clinic_final/Login_and_Signup/reset_password.dart';
 import 'package:digital_clinic_final/Login_and_Signup/signup_page.dart';
 import 'package:digital_clinic_final/Reusables/bottom_navbar.dart';
 import 'package:digital_clinic_final/Reusables/calender.dart';
+import 'package:digital_clinic_final/navigation_menu.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginPage(),
+      home: NavigationMenu(),
     );
   }
 }

@@ -1,7 +1,10 @@
+import 'package:digital_clinic_final/Content/doctors.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:digital_clinic_final/Reusables/bottom_navbar.dart';
 import 'package:digital_clinic_final/Reusables/news_container.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart'; // Import the Font Awesome package
+import 'package:flutter/widgets.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -42,7 +45,11 @@ class HomePage extends StatelessWidget {
                         ),
                         Padding(
                           padding: const EdgeInsets.only(
-                              left: 16.0, right: 16.0, bottom: 16.0, top: 0.0),
+                            left: 16.0,
+                            right: 16.0,
+                            bottom: 16.0,
+                            top: 0.0,
+                          ),
                           child: TextField(
                             decoration: InputDecoration(
                               hintText: 'Search for Doctors, Clinics ...',
@@ -90,36 +97,53 @@ class HomePage extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          //first row first container
-                          Container(
-                            height: 100,
-                            width: 100,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              border: Border.all(
-                                color: Colors.white10, // Set the border color (you can change it as needed)
-                                width: 2, // Set the border thickness
-                              ),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.grey.withOpacity(0.3), // Set a subtle gray color with reduced opacity
-                                  spreadRadius: 5,
-                                  blurRadius: 7,
-                                  offset: Offset(0, 3),
+                          // First row first container
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => DoctorsPage()),
+                              );
+                            },
+                            child: Container(
+                              height: 100,
+                              width: 100,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                border: Border.all(
+                                  color: Colors.white10, // Set the border color (you can change it as needed)
+                                  width: 2, // Set the border thickness
                                 ),
-                              ],
-                            ),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                FaIcon(FontAwesomeIcons.userNurse, color: Color.fromRGBO(106, 121, 213, 1.0), size: 60,),
-                                SizedBox(height: 5,),
-                                Text("Doctor",style: TextStyle(color: Color.fromRGBO(106, 121, 213, 1.0),),),
-                              ],
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.grey.withOpacity(0.3), // Set a subtle gray color with reduced opacity
+                                    spreadRadius: 5,
+                                    blurRadius: 7,
+                                    offset: Offset(0, 3),
+                                  ),
+                                ],
+                              ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  FaIcon(
+                                    FontAwesomeIcons.userNurse,
+                                    color: Color.fromRGBO(106, 121, 213, 1.0),
+                                    size: 60,
+                                  ),
+                                  SizedBox(height: 5),
+                                  Text(
+                                    "Doctor",
+                                    style: TextStyle(
+                                      color: Color.fromRGBO(106, 121, 213, 1.0),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
 
-                          //first row second container
+                          // First row second container
                           Container(
                             height: 100,
                             width: 100,
@@ -141,14 +165,17 @@ class HomePage extends StatelessWidget {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                FaIcon(FontAwesomeIcons.houseMedicalFlag, color: Color.fromRGBO(106, 121, 213, 1.0), size: 60,),
-                                SizedBox(height: 5,),
-                                Text("Clinic",style: TextStyle(color: Color.fromRGBO(106, 121, 213, 1.0),),),
+                                FaIcon(
+                                  FontAwesomeIcons.houseMedicalFlag,
+                                  color: Color.fromRGBO(106, 121, 213, 1.0),
+                                  size: 60,
+                                ),
+                                SizedBox(height: 5),
+                                Text("Clinic", style: TextStyle(color: Color.fromRGBO(106, 121, 213, 1.0))),
                               ],
                             ),
                           ),
-
-                          //first row third container
+                          // First row third container
                           Container(
                             height: 100,
                             width: 100,
@@ -170,19 +197,23 @@ class HomePage extends StatelessWidget {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                FaIcon(FontAwesomeIcons.heartPulse, color: Color.fromRGBO(106, 121, 213, 1.0), size: 60,),
-                                SizedBox(height: 5,),
-                                Text("Specialities",style: TextStyle(color: Color.fromRGBO(106, 121, 213, 1.0),),),
+                                FaIcon(
+                                  FontAwesomeIcons.heartPulse,
+                                  color: Color.fromRGBO(106, 121, 213, 1.0),
+                                  size: 60,
+                                ),
+                                SizedBox(height: 5),
+                                Text("Specialities", style: TextStyle(color: Color.fromRGBO(106, 121, 213, 1.0))),
                               ],
                             ),
                           ),
                         ],
                       ),
-                      SizedBox(height: 15,),
+                      SizedBox(height: 15),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          //second row first container
+                          // Second row first container
                           Container(
                             height: 100,
                             width: 100,
@@ -204,14 +235,17 @@ class HomePage extends StatelessWidget {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                FaIcon(FontAwesomeIcons.flaskVial, color: Color.fromRGBO(106, 121, 213, 1.0), size: 60,),
-                                SizedBox(height: 5,),
-                                Text("Labs",style: TextStyle(color: Color.fromRGBO(106, 121, 213, 1.0),),),
+                                FaIcon(
+                                  FontAwesomeIcons.flaskVial,
+                                  color: Color.fromRGBO(106, 121, 213, 1.0),
+                                  size: 60,
+                                ),
+                                SizedBox(height: 5),
+                                Text("Labs", style: TextStyle(color: Color.fromRGBO(106, 121, 213, 1.0))),
                               ],
                             ),
                           ),
-
-                          //second row second container
+                          // Second row second container
                           Container(
                             height: 100,
                             width: 100,
@@ -233,14 +267,17 @@ class HomePage extends StatelessWidget {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                FaIcon(FontAwesomeIcons.fileInvoice, color: Color.fromRGBO(106, 121, 213, 1.0), size: 60,),
-                                SizedBox(height: 5,),
-                                Text("Insurance",style: TextStyle(color: Color.fromRGBO(106, 121, 213, 1.0),),),
+                                FaIcon(
+                                  FontAwesomeIcons.fileInvoice,
+                                  color: Color.fromRGBO(106, 121, 213, 1.0),
+                                  size: 60,
+                                ),
+                                SizedBox(height: 5),
+                                Text("Insurance", style: TextStyle(color: Color.fromRGBO(106, 121, 213, 1.0))),
                               ],
                             ),
                           ),
-
-                          //second row third container
+                          // Second row third container
                           Container(
                             height: 100,
                             width: 100,
@@ -262,49 +299,55 @@ class HomePage extends StatelessWidget {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                FaIcon(FontAwesomeIcons.biohazard, color: Color.fromRGBO(106, 121, 213, 1.0), size: 60,),
-                                SizedBox(height: 5,),
-                                Text("Emergency",style: TextStyle(color: Color.fromRGBO(106, 121, 213, 1.0),),),
+                                FaIcon(
+                                  FontAwesomeIcons.biohazard,
+                                  color: Color.fromRGBO(106, 121, 213, 1.0),
+                                  size: 60,
+                                ),
+                                SizedBox(height: 5),
+                                Text("Emergency", style: TextStyle(color: Color.fromRGBO(106, 121, 213, 1.0))),
                               ],
                             ),
                           ),
                         ],
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 15.0, top: 30.0, bottom: 15.0),
-                        child: Row(
-                          children: [
-                            Text(
-                              "Hot Themes",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 20),
-                            ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(height: 10,),
-                      SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          children: [
-                            NewsContainer(
-                              date: "31.06.2024",
-                              title: "Covid-19 Vaccination",
-                              description: "Some Description",
-                              imageUrl: "https://www.aamc.org/sites/default/files/styles/scale_and_crop_1200_x_666/public/vaccine-skeptics-1291678676.jpg?itok=b6MP_kaI",
-                              orientation: "horizontal",
-                            ),
-                            NewsContainer(
-                              date: "31.12.1624",
-                              title: "Heart Transplant",
-                              description: "Some Description",
-                              imageUrl: "https://talkstar-photos.s3.amazonaws.com/uploads/286a195b-c576-4e00-b28e-e3aeac637f9f/hearttextless.jpg",
-                              orientation: "horizontal",
-                            ),
-                          ],
-                        ),
-                      ),
                     ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 15.0, top: 30.0, bottom: 15.0),
+                    child: Row(
+                      children: [
+                        Text(
+                          "Hot Themes",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        NewsContainer(
+                          date: "31.06.2024",
+                          title: "Covid-19 Vaccination",
+                          description: "Some Description",
+                          imageUrl: "https://www.aamc.org/sites/default/files/styles/scale_and_crop_1200_x_666/public/vaccine-skeptics-1291678676.jpg?itok=b6MP_kaI",
+                          orientation: "horizontal",
+                        ),
+                        NewsContainer(
+                          date: "31.12.1624",
+                          title: "Heart Transplant",
+                          description: "Some Description",
+                          imageUrl: "https://talkstar-photos.s3.amazonaws.com/uploads/286a195b-c576-4e00-b28e-e3aeac637f9f/hearttextless.jpg",
+                          orientation: "horizontal",
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),

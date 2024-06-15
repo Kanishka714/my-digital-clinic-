@@ -1,4 +1,6 @@
 import 'package:digital_clinic_final/Custom_Buttons/custom_button_1.dart';
+import 'package:digital_clinic_final/Login_and_Signup/login_page.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -339,6 +341,14 @@ class SignUp extends StatelessWidget {
                             style: TextStyle(
                                 color: Color.fromRGBO(106, 121, 213, 1.0),
                                 fontWeight: FontWeight.bold),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => LoginPage()),
+                                );
+                              },
                           ),
                         ],
                       ),

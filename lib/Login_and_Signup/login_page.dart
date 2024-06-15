@@ -1,6 +1,8 @@
 import 'package:digital_clinic_final/Custom_Buttons/custom_button_1.dart';
+import 'package:digital_clinic_final/Login_and_Signup/signup_page.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter/gestures.dart';  // Make sure to import this
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -146,7 +148,7 @@ class LoginPage extends StatelessWidget {
                   ),
 
                   //button
-                  SizedBox(height: height *0.18),
+                  SizedBox(height: height * 0.18),
 
                   Padding(
                     padding: const EdgeInsets.only(left: 10.0, right: 8.0),
@@ -264,12 +266,11 @@ class LoginPage extends StatelessWidget {
 
                   SizedBox(height: height * 0.02),
 
-                  //Already have an account?
-
+                  // Don't have an account? Sign Up
                   Center(
                     child: RichText(
                       text: TextSpan(
-                        text: 'Already have an account? ',
+                        text: 'Don\'t have an account? ',
                         style: TextStyle(color: Colors.grey[500]),
                         children: <TextSpan>[
                           TextSpan(
@@ -277,13 +278,21 @@ class LoginPage extends StatelessWidget {
                             style: TextStyle(
                                 color: Color.fromRGBO(106, 121, 213, 1.0),
                                 fontWeight: FontWeight.bold),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => SignUp()),
+                                );
+                              },
                           ),
                         ],
                       ),
                     ),
                   ),
 
-                  SizedBox(height: height * 0.1,),
+                  SizedBox(height: height * 0.1),
                 ],
               ),
             ),
