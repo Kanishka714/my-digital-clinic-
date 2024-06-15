@@ -1,11 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:digital_clinic_final/Reusables/doctorscards.dart';
-import 'package:digital_clinic_final/navigation_menu.dart';
 
-class DoctorsPage extends StatelessWidget {
-  const DoctorsPage({super.key});
+class MyDoctors extends StatelessWidget {
+  const MyDoctors({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +26,7 @@ class DoctorsPage extends StatelessWidget {
                           child: Row(
                             children: [
                               Text(
-                                "All Doctors",
+                                "My Doctors",
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
@@ -68,35 +64,13 @@ class DoctorsPage extends StatelessWidget {
                       ],
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Row(
-                      children: [
-                        Text(
-                          "Doctors",
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Column(
-                    children: List.generate(6, (index) => DoctorsCards(
-                      name: 'Bhanu',
-                      title: 'OPD',
-                      location: 'Lanka',
-                    )),
-                  ),
                 ],
               ),
             ),
           ),
         ],
       ),
-      bottomNavigationBar: NavigationMenu(), // Correctly placed bottom navigation bar
+      //bottomNavigationBar: NavigationMenu(), // Correctly placed bottom navigation bar
     );
   }
 }

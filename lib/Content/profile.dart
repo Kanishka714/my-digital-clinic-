@@ -1,4 +1,4 @@
-import 'package:digital_clinic_final/Reusables/bottom_navbar.dart';
+import 'package:digital_clinic_final/navigation_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -69,9 +69,9 @@ class Profile extends StatelessWidget {
             ],
           ),
           Align(
-            alignment: Alignment.center, // Center the container
+            alignment: Alignment(0, 0.5), // Adjusted alignment to move it down
             child: Container(
-              height: 550, // Adjusted height
+              height: 600, // Adjusted height
               width: 350,
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -122,7 +122,6 @@ class Profile extends StatelessWidget {
                     ),
                     SizedBox(height: 15,),
                     Divider(thickness: 2),
-
                     SizedBox(height: 10,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -147,7 +146,6 @@ class Profile extends StatelessWidget {
                             Text("Saved\nDoctors",textAlign: TextAlign.center,),
                           ],
                         ),
-
                         //first row second container
                         Column(
                           children: [
@@ -168,7 +166,6 @@ class Profile extends StatelessWidget {
                             Text("Saved\nArticles",textAlign: TextAlign.center,),
                           ],
                         ),
-
                         //first row third container
                         Column(
                           children: [
@@ -193,7 +190,6 @@ class Profile extends StatelessWidget {
                     ),
                     SizedBox(height: 10,),
                     Divider(thickness: 2),
-
                     //Rows
                     Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -257,7 +253,7 @@ class Profile extends StatelessWidget {
                                   Container(
                                     height: 45,
                                     width: 45,
-                                    child: Icon(Icons.person,size: 30,color: Color.fromRGBO(106, 121, 213, 1.0),),
+                                    child: Icon(FontAwesomeIcons.userDoctor, size: 30,color: Color.fromRGBO(106, 121, 213, 1.0),),
                                     color: Colors.white30,
                                   ),
                                   SizedBox(width: 15,),
@@ -295,6 +291,36 @@ class Profile extends StatelessWidget {
                         ),
                       ),
                     ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(context, '/related_articles');
+                        },
+                        child: Container(
+                          child:Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                child: Row(
+                                  children: [
+                                    Container(
+                                      height: 45,
+                                      width: 45,
+                                      child: Icon(Icons.newspaper_outlined,size: 30,color: Color.fromRGBO(106, 121, 213, 1.0),),
+                                      color: Colors.white30,
+                                    ),
+                                    SizedBox(width: 15,),
+                                    Text("Related Articles",style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+                                  ],
+                                ),
+                              ),
+                              Icon(Icons.navigate_next,size: 30,),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -302,7 +328,7 @@ class Profile extends StatelessWidget {
           ),
         ],
       ),
-      bottomNavigationBar: BottomNavBar(),
+      bottomNavigationBar: NavigationMenu(),
     );
   }
 }

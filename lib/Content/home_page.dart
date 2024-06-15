@@ -1,7 +1,7 @@
 import 'package:digital_clinic_final/Content/doctors.dart';
+import 'package:digital_clinic_final/navigation_menu.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:digital_clinic_final/Reusables/bottom_navbar.dart';
 import 'package:digital_clinic_final/Reusables/news_container.dart';
 import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -353,7 +353,7 @@ class HomePage extends StatelessWidget {
               ),
             ),
           ),
-          BottomNavBar(), // Correctly placed bottom navigation bar
+          NavigationMenu(), // Correctly placed bottom navigation bar
         ],
       ),
     );

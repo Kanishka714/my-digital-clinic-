@@ -1,6 +1,10 @@
+import 'package:digital_clinic_final/AdminCare/add_article.dart';
+import 'package:digital_clinic_final/AdminCare/add_user.dart';
+import 'package:digital_clinic_final/AdminCare/create_posts.dart';
 import 'package:digital_clinic_final/Content/booking.dart';
 import 'package:digital_clinic_final/Content/doctors.dart';
 import 'package:digital_clinic_final/Content/home_page.dart';
+import 'package:digital_clinic_final/Content/my_doctors.dart';
 import 'package:digital_clinic_final/Content/profile.dart';
 import 'package:digital_clinic_final/Content/related_articles.dart';
 import 'package:digital_clinic_final/Content/test_dactor.dart';
@@ -17,7 +21,6 @@ import 'package:digital_clinic_final/Login_and_Signup/new_password.dart';
 import 'package:digital_clinic_final/Login_and_Signup/reset_code.dart';
 import 'package:digital_clinic_final/Login_and_Signup/reset_password.dart';
 import 'package:digital_clinic_final/Login_and_Signup/signup_page.dart';
-import 'package:digital_clinic_final/Reusables/bottom_navbar.dart';
 import 'package:digital_clinic_final/Reusables/calender.dart';
 import 'package:digital_clinic_final/navigation_menu.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +36,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: NavigationMenu(),
+      home: HomePage(),
+      routes: {
+        '/home': (context) => const HomePage(),
+        '/doctors': (context) => const DoctorsPage(),
+        '/profile': (context) => const Profile(),
+        '/related_articles': (context) => const RelatedArticles(),
+      },
     );
   }
 }
