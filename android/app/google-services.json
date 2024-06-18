@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "259704955253",
+    "project_id": "digi-clinic-e14fa",
+    "storage_bucket": "digi-clinic-e14fa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:259704955253:android:2c7641d40683cad1cb333c",
+        "android_client_info": {
+          "package_name": "com.example.digital_clinic_final"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCO9SXW3vlcsBUQayodeMTdZWB3UMzsYHA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

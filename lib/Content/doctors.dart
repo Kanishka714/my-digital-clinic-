@@ -1,6 +1,6 @@
-import 'package:flutter/cupertino.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:digital_clinic_final/AdminCare/firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:digital_clinic_final/Reusables/doctorscards.dart';
 import 'package:digital_clinic_final/navigation_menu.dart';
 
@@ -11,6 +11,7 @@ class DoctorsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     final blueHeight = height * 1.1 / 5; // Height for blue color
+    final FirestoreService firestoreService = FirestoreService();
 
     return Scaffold(
       body: Column(
@@ -83,12 +84,26 @@ class DoctorsPage extends StatelessWidget {
                       ],
                     ),
                   ),
-                  Column(
-                    children: List.generate(6, (index) => DoctorsCards(
-                      name: 'Bhanu',
-                      title: 'OPD',
-                      location: 'Lanka',
-                    )),
+                  StreamBuilder<QuerySnapshot>(
+                    stream: firestoreService.getDoctors(),
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return Center(child: CircularProgressIndicator());
+                      }
+                      if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
+                        return Center(child: Text('No doctors found.'));
+                      }
+                      return Column(
+                        children: snapshot.data!.docs.map((doc) {
+                          final data = doc.data() as Map<String, dynamic>;
+                          return DoctorsCards(
+                            name: data['name'],
+                            title: data['title'],
+                            location: data['location'],
+                          );
+                        }).toList(),
+                      );
+                    },
                   ),
                 ],
               ),
