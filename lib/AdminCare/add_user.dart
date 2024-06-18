@@ -1,8 +1,8 @@
-import 'package:digital_clinic_final/AdminCare/firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:digital_clinic_final/AdminCare/firestore.dart';
 
 class AddUser extends StatefulWidget {
-  const AddUser({super.key});
+  const AddUser({Key? key}) : super(key: key);
 
   @override
   _AddUserState createState() => _AddUserState();
@@ -15,9 +15,10 @@ class _AddUserState extends State<AddUser> {
   // Text controllers
   final TextEditingController titleController = TextEditingController();
   final TextEditingController descriptionController = TextEditingController();
+  final TextEditingController locationController = TextEditingController();
 
   // Open dialog box
-  void openNoteBox() {
+  void openUserBox() {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
@@ -27,14 +28,21 @@ class _AddUserState extends State<AddUser> {
             TextField(
               controller: titleController,
               decoration: InputDecoration(
-                labelText: 'Title',
+                labelText: 'Name',
               ),
             ),
             SizedBox(height: 10),
             TextField(
               controller: descriptionController,
               decoration: InputDecoration(
-                labelText: 'Description',
+                labelText: 'Position',
+              ),
+            ),
+            SizedBox(height: 10),
+            TextField(
+              controller: locationController,
+              decoration: InputDecoration(
+                labelText: 'Location',
               ),
             ),
           ],
@@ -42,18 +50,20 @@ class _AddUserState extends State<AddUser> {
         actions: [
           ElevatedButton(
             onPressed: () {
-              firestoreService.addNote(
+              firestoreService.addUser(
                 titleController.text,
                 descriptionController.text,
+                locationController.text,
               ).then((_) {
                 // Clear the text fields
                 titleController.clear();
                 descriptionController.clear();
+                locationController.clear();
 
                 // Close the dialog
                 Navigator.pop(context);
               }).catchError((error) {
-                print('Failed to add note: $error');
+                print('Failed to add user: $error');
               });
             },
             child: Text("Add"),
@@ -66,9 +76,9 @@ class _AddUserState extends State<AddUser> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Notes")),
+      appBar: AppBar(title: Text("Add User")),
       floatingActionButton: FloatingActionButton(
-        onPressed: openNoteBox,
+        onPressed: openUserBox,
         child: Icon(Icons.add),
       ),
     );

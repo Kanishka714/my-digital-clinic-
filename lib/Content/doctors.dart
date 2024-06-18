@@ -1,11 +1,11 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:digital_clinic_final/AdminCare/firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:digital_clinic_final/AdminCare/firestore.dart'; // Ensure correct import path
 import 'package:digital_clinic_final/Reusables/doctorscards.dart';
 import 'package:digital_clinic_final/navigation_menu.dart';
 
 class DoctorsPage extends StatelessWidget {
-  const DoctorsPage({super.key});
+  const DoctorsPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -85,21 +85,32 @@ class DoctorsPage extends StatelessWidget {
                     ),
                   ),
                   StreamBuilder<QuerySnapshot>(
-                    stream: firestoreService.getDoctors(),
+                    stream: firestoreService.getUsers(),
                     builder: (context, snapshot) {
                       if (snapshot.connectionState == ConnectionState.waiting) {
                         return Center(child: CircularProgressIndicator());
                       }
+                      if (snapshot.hasError) {
+                        print('StreamBuilder error: ${snapshot.error}');
+                        return Center(child: Text('Error: ${snapshot.error}'));
+                      }
                       if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
                         return Center(child: Text('No doctors found.'));
                       }
+
+                      // Display data here
                       return Column(
                         children: snapshot.data!.docs.map((doc) {
                           final data = doc.data() as Map<String, dynamic>;
+                          // Ensure fields are not null, or provide fallbacks
+                          final name = data['description'] ?? 'Unknown';
+                          final title = data['title'] ?? 'Unknown';
+                          final location = data['location'] ?? 'Unknown';
+
                           return DoctorsCards(
-                            name: data['name'],
-                            title: data['title'],
-                            location: data['location'],
+                            name: name,
+                            title: title,
+                            location: location,
                           );
                         }).toList(),
                       );

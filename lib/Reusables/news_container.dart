@@ -81,7 +81,7 @@ class NewsContainer extends StatelessWidget {
               child: Row(
                 children: [
                   Text(
-                    description,
+                    "See More",
                     style: TextStyle(
                       color: Colors.white,
                     ),

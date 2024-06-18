@@ -4,15 +4,13 @@ import 'package:flutter/material.dart';
 class DoctorsCards extends StatelessWidget {
   final String name;
   final String title;
-  final String location;
-  // final String imageUrl;
+  final String? location;
 
   const DoctorsCards({
     Key? key,
     required this.name,
     required this.title,
-    required this.location,
-    // required this.imageUrl,
+    this.location,
   }) : super(key: key);
 
   @override
@@ -62,7 +60,7 @@ class DoctorsCards extends StatelessWidget {
                         children: [
                           Text(name, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24)),
                           Text(title, style: TextStyle(color: Colors.grey)),
-                          Text(location, style: TextStyle(color: Colors.grey)),
+                          Text(location ?? 'Location not specified', style: TextStyle(color: Colors.grey)),
                         ],
                       ),
                     ],
@@ -75,9 +73,9 @@ class DoctorsCards extends StatelessWidget {
                     children: [
                       Row(
                         children: [
-                          Icon(Icons.video_camera_back,color:  Color.fromRGBO(106, 121, 213, 1.0),size: 35,),
+                          Icon(Icons.video_camera_back, color: Color.fromRGBO(106, 121, 213, 1.0), size: 35,),
                           SizedBox(width: 5),
-                          Text("Video Visit",style: TextStyle(color:  Color.fromRGBO(106, 121, 213, 1.0), fontSize: 18)),
+                          Text("Video Visit", style: TextStyle(color: Color.fromRGBO(106, 121, 213, 1.0), fontSize: 18)),
                         ],
                       ),
                       Row(
@@ -96,10 +94,7 @@ class DoctorsCards extends StatelessWidget {
                               size: 35,
                             ),
                           ),
-
-
                           SizedBox(width: 10),
-
                           Container(
                             decoration: BoxDecoration(
                               border: Border.all(
@@ -132,12 +127,11 @@ class DoctorsCards extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Icon(Icons.star_rounded, color: Color.fromRGBO(106, 121, 213, 1.0), size: 26,),
-                    Text("4.7", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Color.fromRGBO(106, 121, 213, 1.0) ),),
+                    Text("4.7", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Color.fromRGBO(106, 121, 213, 1.0))),
                   ],
                 ),
               ),
             ),
-
             Positioned(
               top: 0,
               left: 5,
@@ -146,7 +140,7 @@ class DoctorsCards extends StatelessWidget {
                 width: 25,
                 child: Column(
                   children: [
-                    Icon(Icons.bookmark_border, size: 35,color: Color.fromRGBO(106, 121, 213, 1.0),),
+                    Icon(Icons.bookmark_border, size: 35, color: Color.fromRGBO(106, 121, 213, 1.0)),
                   ],
                 ),
               ),

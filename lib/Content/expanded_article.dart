@@ -1,8 +1,12 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:cloud_firestore/cloud_firestore.dart'; // Import for Firestore
 
 class ExpandedArticle extends StatelessWidget {
-  const ExpandedArticle({super.key});
+  final QueryDocumentSnapshot article; // Declare the article variable
+
+  const ExpandedArticle({Key? key, required this.article}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -72,17 +76,41 @@ class ExpandedArticle extends StatelessWidget {
               ),
             ),
           ),
-          SingleChildScrollView(
-            child: Expanded(child: Column(
-              children: [
-                Row(
-                  children: [
-                    Text("Title"),
-                  ],
-                ),
-              ],
-            )),
-          )
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          article['title'],
+                          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          article['timestamp'].toDate().toString().substring(0, 10),
+                          style: TextStyle(fontSize: 16, color: Colors.grey),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    child: Image.network(article['imageUrl']),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Text(
+                      article['description'],
+                      style: TextStyle(fontSize: 16),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );

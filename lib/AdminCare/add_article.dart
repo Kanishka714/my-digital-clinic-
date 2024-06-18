@@ -1,5 +1,7 @@
+import 'package:digital_clinic_final/AdminCare/firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'dart:io';
 
 class AddArticle extends StatefulWidget {
@@ -10,6 +12,11 @@ class AddArticle extends StatefulWidget {
 }
 
 class _AddArticleState extends State<AddArticle> {
+  final FirestoreService firestoreService = FirestoreService();
+
+  final TextEditingController articleTitleController = TextEditingController();
+  final TextEditingController articleDescriptionController = TextEditingController();
+
   File? _image;
 
   Future<void> _pickImage() async {
@@ -21,6 +28,45 @@ class _AddArticleState extends State<AddArticle> {
       } else {
         print('No image selected.');
       }
+    });
+  }
+
+  Future<String?> _uploadImage(File image) async {
+    try {
+      final storageRef = FirebaseStorage.instance.ref().child('article_images/${DateTime.now().millisecondsSinceEpoch}');
+      final uploadTask = storageRef.putFile(image);
+      final snapshot = await uploadTask;
+      return await snapshot.ref.getDownloadURL();
+    } catch (e) {
+      print('Failed to upload image: $e');
+      return null;
+    }
+  }
+
+  Future<void> _submitArticle() async {
+    final title = articleTitleController.text;
+    final description = articleDescriptionController.text;
+    if (title.isEmpty || description.isEmpty || _image == null) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Please fill all fields and select an image.')));
+      return;
+    }
+
+    final imageUrl = await _uploadImage(_image!);
+    if (imageUrl == null) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Image upload failed.')));
+      return;
+    }
+
+    firestoreService.addArticle(title, description, imageUrl).then((_) {
+      articleTitleController.clear();
+      articleDescriptionController.clear();
+      setState(() {
+        _image = null;
+      });
+      Navigator.pop(context);
+    }).catchError((error) {
+      print('Failed to add article: $error');
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Failed to add article.')));
     });
   }
 
@@ -58,6 +104,7 @@ class _AddArticleState extends State<AddArticle> {
             ),
             SizedBox(height: 20),
             TextField(
+              controller: articleTitleController,
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 labelText: 'Title',
@@ -65,6 +112,7 @@ class _AddArticleState extends State<AddArticle> {
             ),
             SizedBox(height: 20),
             TextField(
+              controller: articleDescriptionController,
               maxLines: 4,
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
@@ -73,9 +121,7 @@ class _AddArticleState extends State<AddArticle> {
             ),
             SizedBox(height: 20),
             ElevatedButton(
-              onPressed: () {
-                // Add article submission logic here
-              },
+              onPressed: _submitArticle,
               child: Text('Submit'),
             ),
           ],
