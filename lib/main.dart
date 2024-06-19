@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: RelatedArticles(),
+      home: DoctorsPage(),
       routes: {
         '/home': (context) => const HomePage(),
         '/doctors': (context) => const DoctorsPage(),

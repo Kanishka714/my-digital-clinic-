@@ -103,13 +103,16 @@ class DoctorsPage extends StatelessWidget {
                         children: snapshot.data!.docs.map((doc) {
                           final data = doc.data() as Map<String, dynamic>;
                           // Ensure fields are not null, or provide fallbacks
-                          final name = data['description'] ?? 'Unknown';
-                          final title = data['title'] ?? 'Unknown';
-                          final location = data['location'] ?? 'Unknown';
+                          final name = data['name'] ?? 'Unknown';
+                          final title = data['postitioin'] ?? 'Unknown';
+                          final imageIRL = data['location'] ?? null;
+                          final location = data['imageUrl'] ?? 'Location not specified';
+
 
                           return DoctorsCards(
                             name: name,
                             title: title,
+                            imageIRL: imageIRL,
                             location: location,
                           );
                         }).toList(),

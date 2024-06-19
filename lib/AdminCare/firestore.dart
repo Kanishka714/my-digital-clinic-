@@ -2,28 +2,21 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class FirestoreService {
   // Get collection reference for users
-  final CollectionReference users = FirebaseFirestore.instance.collection('users');
-  final CollectionReference article = FirebaseFirestore.instance.collection('article');
+  final CollectionReference users = FirebaseFirestore.instance.collection(
+      'users');
+  final CollectionReference article = FirebaseFirestore.instance.collection(
+      'article');
+
   //final CollectionReference article = FirebaseFirestore.instance.collection('articles'); //
 
-  //
-  Future<void> addArticle(String title, String description, String imageUrl) {
-    return article.add({
-      'title': title,
-      'description': description,
-      'imageUrl': imageUrl,
-      'timestamp': Timestamp.now(),
-    });
-  }
-  Stream<QuerySnapshot> getArticles() {
-    return article.orderBy('timestamp', descending: true).snapshots();
-  }
 
-  // Add a new user
-  Future<void> addUser(String title, String description, String location) {
+  // User Create/Read
+  Future<void> addUser(String name, String postitioin, String imageUrl,
+      String location) {
     return users.add({
-      'title': title,
-      'description': description,
+      'name': name,
+      'postitioin': postitioin,
+      'imageUrl': imageUrl,
       'location': location,
       'timestamp': Timestamp.now(),
     });
@@ -34,17 +27,25 @@ class FirestoreService {
     return users.orderBy('timestamp', descending: true).snapshots();
   }
 
-  // Update a user by document ID
-  Future<void> updateUser(String docId, String title, String description) {
-    return users.doc(docId).update({
+
+
+
+
+
+
+
+  //Article Create/read
+  Future<void> addArticle(String title, String description, String imageUrl) {
+    return article.add({
       'title': title,
       'description': description,
+      'imageUrl': imageUrl,
       'timestamp': Timestamp.now(),
     });
   }
 
-  // Delete a user by document ID
-  Future<void> deleteUser(String docId) {
-    return users.doc(docId).delete();
+  Stream<QuerySnapshot> getArticles() {
+    return article.orderBy('timestamp', descending: true).snapshots();
   }
+
 }
