@@ -10,7 +10,7 @@ class TestDoc extends StatelessWidget {
       child: Scaffold(
         body: DoctorsCards(
           name: 'Kanishka',
-          title: 'OPD',
+          position: 'OPD',
           location: 'Kirindiwela',
           //imageUrl: "",
         ),

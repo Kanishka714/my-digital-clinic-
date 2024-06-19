@@ -3,17 +3,19 @@ import 'package:flutter/material.dart';
 
 class DoctorsCards extends StatelessWidget {
   final String name;
-  final String title;
-  final String? imageIRL;
+  final String position;
   final String? location;
+  final String? imageIRL;
+
 
 
   const DoctorsCards({
     Key? key,
     required this.name,
-    required this.title,
-    this.imageIRL,
+    required this.position,
     this.location,
+    this.imageIRL,
+
   }) : super(key: key);
 
   @override
@@ -65,7 +67,7 @@ class DoctorsCards extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(name, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24)),
-                          Text(title, style: TextStyle(color: Colors.grey)),
+                          Text(position, style: TextStyle(color: Colors.grey)),
                           Text(location ?? 'Location not specified', style: TextStyle(color: Colors.grey)),
                         ],
                       ),

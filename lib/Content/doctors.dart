@@ -104,14 +104,13 @@ class DoctorsPage extends StatelessWidget {
                           final data = doc.data() as Map<String, dynamic>;
                           // Ensure fields are not null, or provide fallbacks
                           final name = data['name'] ?? 'Unknown';
-                          final title = data['postitioin'] ?? 'Unknown';
-                          final imageIRL = data['location'] ?? null;
-                          final location = data['imageUrl'] ?? 'Location not specified';
-
+                          final position = data['position'] ?? 'Unknown';
+                          final imageIRL = data['imageUrl'] ?? 'No Image URL';
+                          final location = data['location'] ?? 'Location not specified';
 
                           return DoctorsCards(
                             name: name,
-                            title: title,
+                            position: position,
                             imageIRL: imageIRL,
                             location: location,
                           );

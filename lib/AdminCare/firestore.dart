@@ -7,17 +7,13 @@ class FirestoreService {
   final CollectionReference article = FirebaseFirestore.instance.collection(
       'article');
 
-  //final CollectionReference article = FirebaseFirestore.instance.collection('articles'); //
-
-
   // User Create/Read
-  Future<void> addUser(String name, String postitioin, String imageUrl,
-      String location) {
+  Future<void> addUser(String name, String position, String location, String imageUrl) {
     return users.add({
       'name': name,
-      'postitioin': postitioin,
-      'imageUrl': imageUrl,
+      'position': position,
       'location': location,
+      'imageUrl': imageUrl,
       'timestamp': Timestamp.now(),
     });
   }
