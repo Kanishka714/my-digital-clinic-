@@ -1,3 +1,4 @@
+import 'package:digital_clinic_final/Content/clinic.dart';
 import 'package:digital_clinic_final/Content/doctors.dart';
 import 'package:digital_clinic_final/Content/specialities.dart';
 import 'package:digital_clinic_final/navigation_menu.dart';
@@ -145,35 +146,43 @@ class HomePage extends StatelessWidget {
                           ),
 
                           // First row second container
-                          Container(
-                            height: 100,
-                            width: 100,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              border: Border.all(
-                                color: Colors.white10, // Set the border color (you can change it as needed)
-                                width: 2, // Set the border thickness
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => Clinic()),
+                              );
+                            },
+                            child: Container(
+                              height: 100,
+                              width: 100,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                border: Border.all(
+                                  color: Colors.white10, // Set the border color (you can change it as needed)
+                                  width: 2, // Set the border thickness
+                                ),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.grey.withOpacity(0.3), // Set a subtle gray color with reduced opacity
+                                    spreadRadius: 5,
+                                    blurRadius: 7,
+                                    offset: Offset(0, 3),
+                                  ),
+                                ],
                               ),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.grey.withOpacity(0.3), // Set a subtle gray color with reduced opacity
-                                  spreadRadius: 5,
-                                  blurRadius: 7,
-                                  offset: Offset(0, 3),
-                                ),
-                              ],
-                            ),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                FaIcon(
-                                  FontAwesomeIcons.houseMedicalFlag,
-                                  color: Color.fromRGBO(106, 121, 213, 1.0),
-                                  size: 60,
-                                ),
-                                SizedBox(height: 5),
-                                Text("Clinic", style: TextStyle(color: Color.fromRGBO(106, 121, 213, 1.0))),
-                              ],
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  FaIcon(
+                                    FontAwesomeIcons.houseMedicalFlag,
+                                    color: Color.fromRGBO(106, 121, 213, 1.0),
+                                    size: 60,
+                                  ),
+                                  SizedBox(height: 5),
+                                  Text("Clinic", style: TextStyle(color: Color.fromRGBO(106, 121, 213, 1.0))),
+                                ],
+                              ),
                             ),
                           ),
                           // First row third container

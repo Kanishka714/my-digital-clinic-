@@ -2,6 +2,7 @@ import 'package:digital_clinic_final/AdminCare/add_article.dart';
 import 'package:digital_clinic_final/AdminCare/add_user.dart';
 import 'package:digital_clinic_final/AdminCare/create_posts.dart';
 import 'package:digital_clinic_final/Content/booking.dart';
+import 'package:digital_clinic_final/Content/clinic.dart';
 import 'package:digital_clinic_final/Content/doctors.dart';
 import 'package:digital_clinic_final/Content/expanded_article.dart';
 import 'package:digital_clinic_final/Content/home_page.dart';
@@ -42,13 +43,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Specialities(),
+      home: Clinic(),
       routes: {
         '/home': (context) => const HomePage(),
         '/doctors': (context) => const DoctorsPage(),
         '/profile': (context) => const Profile(),
         '/related_articles': (context) => const RelatedArticles(),
         '/specialisties': (context) => const Specialities(),
+        '/clinic': (context) => const Clinic(),
       },
     );
   }
