@@ -8,6 +8,7 @@ import 'package:digital_clinic_final/Content/home_page.dart';
 import 'package:digital_clinic_final/Content/my_doctors.dart';
 import 'package:digital_clinic_final/Content/profile.dart';
 import 'package:digital_clinic_final/Content/related_articles.dart';
+import 'package:digital_clinic_final/Content/specialities.dart';
 import 'package:digital_clinic_final/Content/test_dactor.dart';
 import 'package:digital_clinic_final/Custom_Buttons/custom_buttom_2.dart';
 import 'package:digital_clinic_final/Custom_Buttons/custom_button_1.dart';
@@ -41,12 +42,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: DoctorsPage(),
+      home: Specialities(),
       routes: {
         '/home': (context) => const HomePage(),
         '/doctors': (context) => const DoctorsPage(),
         '/profile': (context) => const Profile(),
         '/related_articles': (context) => const RelatedArticles(),
+        '/specialisties': (context) => const Specialities(),
       },
     );
   }
