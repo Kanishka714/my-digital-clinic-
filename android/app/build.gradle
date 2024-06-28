@@ -48,7 +48,7 @@ android {
         applicationId "com.example.digital_clinic_final"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
-        minSdkVersion 21 // Set minSdkVersion to 21 explicitly
+        minSdkVersion 23 // Set minSdkVersion to 21 explicitly
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName

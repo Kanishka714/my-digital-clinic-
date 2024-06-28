@@ -1,11 +1,63 @@
+import 'package:digital_clinic_final/Content/home_page.dart';
 import 'package:digital_clinic_final/Custom_Buttons/custom_button_1.dart';
 import 'package:digital_clinic_final/Login_and_Signup/signup_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:flutter/gestures.dart';  // Make sure to import this
+import 'package:flutter/gestures.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+
+  Future<void> signIn() async {
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: _emailController.text.trim(),
+        password: _passwordController.text.trim(),
+      );
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => HomePage()),
+      );
+    } catch (e) {
+      if (e is FirebaseAuthException) {
+        print('Error signing in: ${e.message}');
+        // Display the error to the user
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text('Sign In Error'),
+            content: Text(e.message ?? 'An unknown error occurred.'),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(),
+                child: Text('OK'),
+              ),
+            ],
+          ),
+        );
+      } else {
+        print('An unexpected error occurred: $e');
+        // Handle other types of exceptions if necessary
+      }
+    }
+  }
+
+  @override
+  void dispose(){
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +102,7 @@ class LoginPage extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Sign In",
+                          "Log In",
                           style: TextStyle(
                               fontSize: 44,
                               fontWeight: FontWeight.bold,
@@ -88,6 +140,7 @@ class LoginPage extends StatelessWidget {
                     padding: EdgeInsets.symmetric(
                         horizontal: width * 0.05), // Apply horizontal padding
                     child: TextField(
+                      controller: _emailController,
                       decoration: InputDecoration(
                         hintText: 'Email',
                         hintStyle: TextStyle(color: Colors.grey[500]),
@@ -119,6 +172,7 @@ class LoginPage extends StatelessWidget {
                     padding: EdgeInsets.symmetric(
                         horizontal: width * 0.05), // Apply horizontal padding
                     child: TextField(
+                      controller: _passwordController,
                       decoration: InputDecoration(
                         hintText: 'Password',
                         hintStyle: TextStyle(color: Colors.grey[500]),
@@ -152,14 +206,17 @@ class LoginPage extends StatelessWidget {
 
                   Padding(
                     padding: const EdgeInsets.only(left: 10.0, right: 8.0),
-                    child: CustomButton1(
-                      text: "Sign In",
-                      fillColor: Color.fromRGBO(106, 121, 213, 1.0),
-                      textColor: Colors.white,
-                      borderColor: Colors.transparent,
-                      onPress: () {
-                        // Define your onPress function here
-                      },
+                    child: GestureDetector(
+                      onTap: signIn,
+                      child: CustomButton1(
+                        text: "Sign In",
+                        fillColor: Color.fromRGBO(106, 121, 213, 1.0),
+                        textColor: Colors.white,
+                        borderColor: Colors.transparent,
+                        onPress: () {
+                          // Define your onPress function here
+                        },
+                      ),
                     ),
                   ),
 
